@@ -8,7 +8,6 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
-import 'package:gigya_flutter_plugin/gigya_flutter_plugin.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,35 +15,10 @@ void main() async {
 
   await FlutterFlowTheme.initialize();
 
-  const GigyaSdk sdk = GigyaSdk();
-
-  // Demonstrate explicit initialization before calling `runApp()`,
-  // using the configuration for the example app.
-  const String exampleAppApiKey =
-      '4_Wu2j2XbzlQXc2LJPsQQuBQ';
-  const String exampleAppApiDomain = 'us1.gigya.com';
-
-  try {
-    await sdk.initSdk(
-      apiDomain: exampleAppApiDomain,
-      apiKey: exampleAppApiKey,
-    );
-
-    print('Gigya SDK initialized.');
-  } catch (error, stackTrace) {
-    print('Failed to initialize the Gigya SDK.');
-    print(error);
-    print(stackTrace);
-  }
-
-
-  runApp(MyApp(sdk));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp(this.sdk, { super.key });
-  /// The initialized Gigya SDK.
-  final GigyaSdk sdk;
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
